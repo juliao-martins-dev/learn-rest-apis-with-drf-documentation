@@ -146,3 +146,64 @@ Uza request hanesan iha seksaun Ingles atu hamos snippet tuir ID.
 
 ## ❤️ Thanks
 If this API helps your learning journey, star the repository and share it with friends.
+
+
+---
+
+## 🔀 How to Rebase and Create Pull Request (Fix "base: main" = "compare: main")
+
+### English
+If GitHub shows `base: main` and `compare: main`, there is no branch difference, so PR cannot show changes.
+
+Use this flow:
+
+```bash
+git checkout -b docs/readme-refresh
+git add README.md
+git commit -m "Update README"
+git push -u origin docs/readme-refresh
+```
+
+Then on GitHub:
+1. Open **Compare & pull request**.
+2. Set **base = main**.
+3. Set **compare = docs/readme-refresh** (NOT `main`).
+4. Create PR and merge.
+
+If your branch is behind `main`, rebase before push:
+
+```bash
+git fetch origin
+git rebase origin/main
+git push --force-with-lease
+```
+
+If you want to remove the old README content and fully replace it, just edit `README.md`, commit, and open PR from your feature branch.
+
+### Tetun
+Se GitHub hatudu `base: main` no `compare: main`, ne'e signifika la iha diferensa entre branch sira, tanba ne'e PR la hatudu mudansa.
+
+Uza dalan ida-ne'e:
+
+```bash
+git checkout -b docs/readme-refresh
+git add README.md
+git commit -m "Update README"
+git push -u origin docs/readme-refresh
+```
+
+Depois iha GitHub:
+1. Loke **Compare & pull request**.
+2. Hili **base = main**.
+3. Hili **compare = docs/readme-refresh** (LA'Ó `main`).
+4. Kria PR no merge.
+
+Se branch ita boot nia seidauk atualizadu ho `main`, halo rebase uluk:
+
+```bash
+git fetch origin
+git rebase origin/main
+git push --force-with-lease
+```
+
+Se hakarak troka hotu README tuan nian, edita `README.md`, commit, no loke PR husi branch foun.
