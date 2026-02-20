@@ -1,30 +1,54 @@
-# Snippets API Documentation
+# Snippets REST API Documentation
 
-## Bilingual Documentation
+## Overview
+The Snippets REST API provides an interface for managing code snippets. It supports standard HTTP methods for interacting with resources.
 
-### HTTP Methods
+## HTTP Methods
 
-#### GET
-- **Description**: Fetches a list or a single snippet.
-- **Response**: 200 OK if successful.
+### GET
+- Retrieve a list of snippets.
+- Retrieve a specific snippet by ID.
 
-#### POST
-- **Description**: Creates a new snippet.
-- **Response**: 201 Created if successful. Returns the created snippet.
+### POST
+- Create a new snippet.
 
-#### PUT
-- **Description**: Updates an existing snippet.
-- **Response**: 200 OK if successful, or 404 Not Found if the snippet does not exist.
+### PUT
+- Update an existing snippet (replace all fields).
 
-#### PATCH
-- **Description**: Partially updates an existing snippet.
-- **Response**: 200 OK if successful, or 404 Not Found if the snippet does not exist.
+### PATCH
+- Update specific fields of a snippet.
 
-#### DELETE
-- **Description**: Deletes a snippet.
-- **Response**: 204 No Content if successful. 
+### DELETE
+- Delete a snippet by ID.
 
-### Server Startup Time Warning
-**Warning**: The server startup time may take between 50 seconds to over 1 minute. Please be patient during this process.
+## Server Startup Warnings
+**Important:** If you are using the Render free tier, please be aware that the server may experience a delay of over 50 seconds during startup. This is a limitation of the free tier, and you may need to wait for the server to warm up on the first request.
 
 ---
+
+## Bilingual Documentation
+### Tetun
+
+## Fokulu
+API Snippets REST proporciona interface hodi gere snippets kodigu. Nune'e suporta metódu HTTP padroniza hodi interagiu ho resursu.
+
+## Metódu HTTP
+
+### GET
+- Halai lista snippets.
+- Halai snippat spesífiku ba ID.
+
+### POST
+- Krea snippat foun.
+
+### PUT
+- Atualiza snippat existente (substitui tudu filds).
+
+### PATCH
+- Atualiza filds spesífiku husi snippat.
+
+### DELETE
+- Losa snippat husi ID.
+
+## Avisu Ba Ahins
+**Importante:** Se atu uza Render free tier, favor ohin be aware ne'be servidor bele hikas delay liu 50 segundu durante startup. Ema nian limitaçao husi free tier, no katak bele precisa hikas tempu ba servidor atu taraf'interagibe ho requerimentu primeiru.
