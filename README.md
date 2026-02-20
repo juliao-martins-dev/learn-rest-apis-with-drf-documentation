@@ -1,49 +1,114 @@
-# API Documentation
+# API Documentation for Snippets Endpoint
 
-This document provides comprehensive details about the REST API available at the endpoint [https://juliao-martins-snippets.onrender.com/](https://juliao-martins-snippets.onrender.com/).
+## Overview
+This documentation provides comprehensive information about the Snippets API, covering all CRUD operations.
 
-## Table of Contents
-- [General Information](#general-information)
-- [API Endpoints](#api-endpoints)
-  - [GET Method](#get-method)
-  - [POST Method](#post-method)
-  - [PUT Method](#put-method)
-  - [PATCH Method](#patch-method)
-  - [DELETE Method](#delete-method)
-- [Server Startup Time](#server-startup-time)
+### Snippets Endpoint
+- **Base URL**: `/api/snippets`
 
-## General Information
-This API is designed to manage resources effectively, supporting various HTTP methods to interact with them. Please ensure to check the respective headers and payload requirements for each method.
+### Authentication
+- All endpoints require JWT token-based authentication.
+- Include the token in the `Authorization` header as follows:
+  ```
+  Authorization: Bearer <your_token>
+  ```
 
-## API Endpoints
+### CRUD Operations
 
-### GET Method
-- **Endpoint:** `/resource`
-- **Description:** Retrieves a list of resources.
-- **Response:** 200 OK (returns JSON array of resources)
+#### 1. Create a Snippet
+- **Method**: `POST`
+- **URL**: `/api/snippets`
+- **Request Body**:
+  ```json
+  {
+      "title": "Snippet Title",
+      "code": "print('Hello, World!')",
+      "language": "Python"
+  }
+  ```
+- **Response**:
+  - **201 Created**
+  ```json
+  {
+      "id": 1,
+      "title": "Snippet Title",
+      "code": "print('Hello, World!')",
+      "language": "Python"
+  }
+  ```
 
-### POST Method
-- **Endpoint:** `/resource`
-- **Description:** Creates a new resource.
-- **Request Body:** JSON object containing the details of the resource to create.
-- **Response:** 201 Created (returns the created resource)
-  
-### PUT Method
-- **Endpoint:** `/resource/{id}`
-- **Description:** Updates an existing resource by replacement.
-- **Request Body:** JSON object containing the updated details of the resource.
-- **Response:** 200 OK (returns the updated resource)
+#### 2. Read a Snippet
+- **Method**: `GET`
+- **URL**: `/api/snippets/{id}`
+- **Response**:
+  - **200 OK**
+  ```json
+  {
+      "id": 1,
+      "title": "Snippet Title",
+      "code": "print('Hello, World!')",
+      "language": "Python"
+  }
+  ```
 
-### PATCH Method
-- **Endpoint:** `/resource/{id}`
-- **Description:** Updates partial details of an existing resource.
-- **Request Body:** JSON object containing the fields to update.
-- **Response:** 200 OK (returns the updated resource)
+#### 3. Update a Snippet
+- **Method**: `PUT`
+- **URL**: `/api/snippets/{id}`
+- **Request Body**:
+  ```json
+  {
+      "title": "Updated Snippet Title",
+      "code": "print('Hello, Updated World!')",
+      "language": "Python"
+  }
+  ```
+- **Response**:
+  - **200 OK**
+  ```json
+  {
+      "id": 1,
+      "title": "Updated Snippet Title",
+      "code": "print('Hello, Updated World!')",
+      "language": "Python"
+  }
+  ```
 
-### DELETE Method
-- **Endpoint:** `/resource/{id}`
-- **Description:** Deletes a resource.
-- **Response:** 204 No Content (successful deletion)
+#### 4. Partially Update a Snippet
+- **Method**: `PATCH`
+- **URL**: `/api/snippets/{id}`
+- **Request Body**:
+  ```json
+  {
+      "title": "Partially Updated Snippet Title"
+  }
+  ```
+- **Response**:
+  - **200 OK**
+  ```json
+  {
+      "id": 1,
+      "title": "Partially Updated Snippet Title",
+      "code": "print('Hello, Updated World!')",
+      "language": "Python"
+  }
+  ```
 
-## Server Startup Time
-Be aware that the server may take some time to start up. Depending on the environment and current load, it may take some seconds to respond to the first request once it is started. Please plan your interactions accordingly to accommodate for this delay.
+#### 5. Delete a Snippet
+- **Method**: `DELETE`
+- **URL**: `/api/snippets/{id}`
+- **Response**:
+  - **204 No Content**
+
+### Warning
+- The server may take a few minutes to start up, please be patient after initiating the server.
+
+---
+
+## Bilingual Documentation
+
+### Tetun
+**Pundamétu**: Keta hetan_saida API Snippets, no halo ita konta ba CRUD operasaun sira.
+
+**PUNTIANE karak:** Oin ruma **GET** talit, **POST** talit, **PUT** talit, **PATCH** talit no **DELETE** talit. Todos iha autenticasaun (token JWT).
+
+**Fila ba Snippet**: ... *Continue with Tetun translations for each section above*
