@@ -1,54 +1,148 @@
-# Snippets REST API Documentation
+# 🚀 Snippets REST API — Beautiful & Practical Docs
 
-## Overview
-The Snippets REST API provides an interface for managing code snippets. It supports standard HTTP methods for interacting with resources.
+<p align="center">
+  <b>Simple code snippets API</b> · Built for learning REST with Django REST Framework
+</p>
 
-## HTTP Methods
-
-### GET
-- Retrieve a list of snippets.
-- Retrieve a specific snippet by ID.
-
-### POST
-- Create a new snippet.
-
-### PUT
-- Update an existing snippet (replace all fields).
-
-### PATCH
-- Update specific fields of a snippet.
-
-### DELETE
-- Delete a snippet by ID.
-
-## Server Startup Warnings
-**Important:** If you are using the Render free tier, please be aware that the server may experience a delay of over 50 seconds during startup. This is a limitation of the free tier, and you may need to wait for the server to warm up on the first request.
+<p align="center">
+  <img alt="API" src="https://img.shields.io/badge/API-REST-6f42c1" />
+  <img alt="Methods" src="https://img.shields.io/badge/Methods-GET%20POST%20PUT%20DELETE-0ea5e9" />
+  <img alt="Auth" src="https://img.shields.io/badge/Auth-Basic-orange" />
+  <img alt="Status" src="https://img.shields.io/badge/Hosted%20on-Render-46E3B7" />
+</p>
 
 ---
 
-## Bilingual Documentation
-### Tetun
+## ⚠️ IMPORTANT WARNING / AVISU IMPORTANTE (Read First / Lee uluk)
 
-## Fokulu
-API Snippets REST proporciona interface hodi gere snippets kodigu. Nune'e suporta metódu HTTP padroniza hodi interagiu ho resursu.
+### ENGLISH
+If you are testing this API on Render free tier, the server can be "sleeping".
+On the first request, you may need to wait **50 seconds to 1+ minute** for the server to wake up.
 
-## Metódu HTTP
+✅ Please be patient and try again if your first request is slow.
 
-### GET
-- Halai lista snippets.
-- Halai snippat spesífiku ba ID.
+### TETUN
+Se ita teste API ida-ne'e iha Render free tier, servidor bele iha kondisaun "sleeping".
+Iha request dahuluk, ita presiza hein **50 segundu to'o liu 1 minutu** atu servidor fila fali.
 
-### POST
-- Krea snippat foun.
+✅ Favor paciencia no koko fila fali se request dahuluk la'o kleur.
 
-### PUT
-- Atualiza snippat existente (substitui tudu filds).
+---
 
-### PATCH
-- Atualiza filds spesífiku husi snippat.
+## 📘 API Overview (English)
 
-### DELETE
-- Losa snippat husi ID.
+The **Snippets REST API** lets you:
+- Get all snippets
+- Get one snippet by ID
+- Create a new snippet
+- Update a snippet
+- Delete a snippet
 
-## Avisu Ba Ahins
-**Importante:** Se atu uza Render free tier, favor ohin be aware ne'be servidor bele hikas delay liu 50 segundu durante startup. Ema nian limitaçao husi free tier, no katak bele precisa hikas tempu ba servidor atu taraf'interagibe ho requerimentu primeiru.
+**Base URL**
+```txt
+https://juliao-martins-snippets.onrender.com
+```
+
+### 1) Get all snippets (GET)
+```http
+GET /snippets/
+```
+
+Postman URL:
+```txt
+https://juliao-martins-snippets.onrender.com/snippets/
+```
+
+### 2) Get a specific snippet (GET)
+```http
+GET /snippets/1/
+```
+
+Postman URL:
+```txt
+https://juliao-martins-snippets.onrender.com/snippets/1/
+```
+
+### 3) Create snippet (POST)
+```bash
+postman request POST 'https://juliao-martins-snippets.onrender.com/snippets/' \
+  --header 'Content-Type: application/json' \
+  --header 'Authorization: Basic anVsaWFvOmp1bGlhb0BkZXYxMjM=' \
+  --body '{
+    "code": "using System;\r\n\r\nnamespace HelloWorldApp\r\n{\r\n    class Program\r\n    {\r\n        static void Main(string[] args)\r\n        {\r\n            Console.WriteLine(\"Hello, World!\");\r\n            // Optional: Keep the console window open in some environments\r\n            // Console.ReadKey(); \r\n        }\r\n    }\r\n}"
+}' \
+  --auth-basic-username 'secret_username' \
+  --auth-basic-password 'secret_password'
+```
+
+### 4) Update snippet (PUT)
+```bash
+postman request PUT 'https://juliao-martins-snippets.onrender.com/snippets/3/' \
+  --header 'Content-Type: application/json' \
+  --header 'Authorization: Basic anVsaWFvOmp1bGlhb0BkZXYxMjM=' \
+  --body '{
+    "code": "\\ My first program\r\n\rusing System;\r\n\r\nnamespace HelloWorldApp\r\n{\r\n    class Program\r\n    {\r\n        static void Main(string[] args)\r\n        {\r\n            Console.WriteLine(\"Hello, World!\");\r\n            // Optional: Keep the console window open in some environments\r\n            // Console.ReadKey(); \r\n        }\r\n    }\r\n}"
+}' \
+  --auth-basic-username 'secret_username' \
+  --auth-basic-password 'secret_password'
+```
+
+### 5) Delete snippet (DELETE)
+```bash
+postman request DELETE 'https://juliao-martins-snippets.onrender.com/snippets/3/' \
+  --header 'Content-Type: application/json' \
+  --header 'Authorization: Basic anVsaWFvOmp1bGlhb0BkZXYxMjM=' \
+  --body '{
+    "code": "\\ My first program\r\n\rusing System;\r\n\r\nnamespace HelloWorldApp\r\n{\r\n    class Program\r\n    {\r\n        static void Main(string[] args)\r\n        {\r\n            Console.WriteLine(\"Hello, World!\");\r\n            // Optional: Keep the console window open in some environments\r\n            // Console.ReadKey(); \r\n        }\r\n    }\r\n}"
+}' \
+  --auth-basic-username 'secret_username' \
+  --auth-basic-password 'secret_password'
+```
+
+---
+
+## 📗 Esplicasaun API (Tetun)
+
+**Snippets REST API** bele ajuda ita atu:
+- Hetan lista snippets hotu-hotu
+- Hetan snippet ida tuir ID
+- Kria snippet foun
+- Atualiza snippet ida
+- Hamos snippet ida
+
+**Base URL**
+```txt
+https://juliao-martins-snippets.onrender.com
+```
+
+### 1) Hetan snippets hotu (GET)
+```http
+GET /snippets/
+```
+
+### 2) Hetan snippet espesífiku (GET)
+```http
+GET /snippets/1/
+```
+
+### 3) Kria snippet (POST)
+Uza request hanesan iha seksaun Ingles, ho autenticasaun Basic no JSON body.
+
+### 4) Atualiza snippet (PUT)
+Uza request hanesan iha seksaun Ingles, altera `code` tuir presiza.
+
+### 5) Hamos snippet (DELETE)
+Uza request hanesan iha seksaun Ingles atu hamos snippet tuir ID.
+
+---
+
+## 🧪 Quick Testing Tips
+- First request might be slow (Render cold start).
+- Use Postman and set `Content-Type: application/json`.
+- For write operations (`POST`, `PUT`, `DELETE`), include Basic Auth.
+- If timeout happens on first try, wait and retry once.
+
+---
+
+## ❤️ Thanks
+If this API helps your learning journey, star the repository and share it with friends.
