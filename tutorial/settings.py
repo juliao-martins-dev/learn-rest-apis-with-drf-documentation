@@ -11,28 +11,26 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
 import os
-import dj_database_url
-
-
 from pathlib import Path
+
+import dj_database_url
+from django.core.exceptions import ImproperlyConfigured
 from dotenv import load_dotenv
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-load_dotenv(BASE_DIR / ".env")
+# Only load .env locally (Render provides env vars itself)
+if os.getenv("RENDER") is None and (BASE_DIR / ".env").exists():
+    load_dotenv(BASE_DIR / ".env")
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
+SECRET_KEY = os.getenv(
+    "DJANGO_SECRET_KEY",
+    "django-insecure-8==)nk99ocp$ierlf+11^wtr$w+s&n5a!3@&3*ot270&(9dq!3",
+)
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-8==)nk99ocp$ierlf+11^wtr$w+s&n5a!3@&3*ot270&(9dq!3')
+DEBUG = os.getenv("DEBUG", "False").lower() == "true"
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = ["*"]
-
+ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "*").split(",")
 
 # Application definition
 
@@ -99,11 +97,15 @@ WSGI_APPLICATION = 'tutorial.wsgi.application'
 #     }
 # }
 
+DATABASE_URL = os.getenv("DATABASE_URL")
+if not DATABASE_URL:
+    raise ImproperlyConfigured("DATABASE_URL is not set (or is empty). Check Render env vars.")
+
 DATABASES = {
-    "default": dj_database_url.config(
-        default=os.environ.get("DATABASE_URL"),
+    "default": dj_database_url.parse(
+        DATABASE_URL,
         conn_max_age=600,
-        ssl_require=True,   # makes Django require SSL
+        ssl_require=True,
     )
 }
 
