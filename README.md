@@ -23,7 +23,7 @@ On the first request, you may need to wait **50 seconds to 1+ minute** for the s
 
 ### TETUN
 Se ita teste API ida-ne'e iha Render free tier, servidor bele iha kondisaun "sleeping".
-Iha request dahuluk, ita presiza hein **50 segundu to'o liu 1 minutu** atu servidor fila fali.
+Iha request dahuluk, ita presiza hein **50 segundu to'o liu 1 minutu** atu servidor ou "server up" fila fali.
 
 ✅ Favor paciencia no koko fila fali se request dahuluk la'o kleur.
 
